@@ -18,7 +18,7 @@ entree.pack()
 
 def validation():
     chiffres = entree.get()[14 : 19]
-    #fenetre.withdraw()
+    fenetre.withdraw()
     showinfo("Merci!", f"Votre numero de carte: \n **** **** **** {chiffres}")
     fenetre.quit()
     fenetre.destroy()
