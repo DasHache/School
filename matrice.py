@@ -26,7 +26,7 @@ class Matrice:
                 ligne_matrice = []
         matrix = Matrice(new_matrice)
         
-        return matrix.__str__()
+        return matrix
 
     def __mul__(self, other):
         if self.colonnes != other.lignes:
@@ -39,13 +39,12 @@ class Matrice:
                 for i1 in range(other.colonnes):
                     for i2 in range(self.colonnes):
                         valeur += self.pack[i][i2] * other.pack[i2][i1]
-                        print(valeur)
                     ligne_matrice.append(valeur)
                     valeur = 0
                 new_matrice.append(ligne_matrice)   
                 ligne_matrice = []
             matrix = Matrice(new_matrice)
-        return matrix.__str__()
+        return matrix
 
 
 L = [[0, 1, 3],[0, 1, 3]]
