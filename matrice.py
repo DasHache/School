@@ -14,7 +14,7 @@ class Matrice:
     
     def __add__(self, other):
         if self.lignes != other.lignes or self.colonnes != other.colonnes:
-            return "impossible de faire l'addition"
+            return "impossible de faire l'operation"
         else:
             new_matrice = []
             ligne_matrice = []
@@ -28,10 +28,29 @@ class Matrice:
         
         return matrix.__str__()
 
+    def __mul__(self, other):
+        if self.colonnes != other.lignes:
+            return "impossible de faire l'operation"
+        else:
+            new_matrice = []
+            ligne_matrice = []
+            valeur = 0
+            for i in range(self.lignes):
+                for i1 in range(other.colonnes):
+                    for i2 in range(self.colonnes):
+                        valeur += self.pack[i][i2] * other.pack[i2][i1]
+                        print(valeur)
+                    ligne_matrice.append(valeur)
+                    valeur = 0
+                new_matrice.append(ligne_matrice)   
+                ligne_matrice = []
+            matrix = Matrice(new_matrice)
+        return matrix.__str__()
 
 
-L = [[0, 1], [0, 1]]
-L2 = [[3, 1], [4, 1]]
+L = [[0, 1, 3],[0, 1, 3]]
+L2 = [[3, 1, 4],[3, 1, 4],[3, 1, 6]]
 B = Matrice(L2)
 A = Matrice(L)
 print(A+B)
+print(A*B)
